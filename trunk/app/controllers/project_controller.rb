@@ -22,7 +22,7 @@ class ProjectController < ApplicationController
     @project = Project.new(params[:project])
     handle_disciplines_projects
     if @project.save!
-        redirect_to :action => "index"
+        redirect_to :action => "projects_by_staff"
     else
       render :action => "new"
     end
@@ -37,10 +37,8 @@ class ProjectController < ApplicationController
     redirect_to :action => "index"
   end
 
-  def dispatch
+  def allocate
     @projects = Project.find_by_sql "SELECT * FROM projects WHERE id NOT IN (SELECT project_id FROM students WHERE project_id IS NOT NULL)"
-#    @projects = Project.find(:all)
-#    @students = Student.find(:all, :order => "grade DESC")
     @students = Student.find_by_sql "SELECT * FROM students WHERE project_id IS NULL OR project_id = 0 ORDER BY grade DESC"
     @assigned = []
     @ass_students = []
@@ -59,8 +57,6 @@ class ProjectController < ApplicationController
           @nass_students.push(s.id)
         end
     end
-
-
     i = 0
     @assigned.each do |p|
       #@ass_students[i] = (Project.find p).title
