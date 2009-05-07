@@ -1,0 +1,7 @@
+#How to obtain and install a copy of this project.
+
+= Introduction =
+
+This project is dual hosted at github.com (http://github.com/cpjobling/Proman/tree/master) and Google code (http://code.google.com/p/proman111). To download a copy of the latest (HEAD) version go to http://github.com/cpjobling/Proman/tree/master or http://code.google.com/p/proman111/source/checkout and follow the instructions. 
+
+At the moment, we are using the subversion repository on Google code to track the major development changes and the git repository on github.com as a version for distributed development and deployment. I will document the processes more thoroughly as I discover them.
