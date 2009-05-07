@@ -1,6 +1,6 @@
 class GateController < ApplicationController
   
-    def list
+  def list
     @users = User.find(:all)
   end
   
