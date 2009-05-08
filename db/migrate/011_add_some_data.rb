@@ -3,63 +3,63 @@ class AddSomeData < ActiveRecord::Migration
     
     #Creates projects
     Project.create(
-        :createdby => '3',
+        :created_by => 3,
         :title => 'Project 1',
-        :description => 'This is a dummy project proposed by the staff member with id=3.',
+        :description => 'This is a dummy project proposed by the staff member with id=3 (Prof. A. N. Academic).',
         :resources => 'none')
       
     Project.create(
-        :createdby => '3',
+        :created_by => 3,
         :title => 'Project 2',
-        :description => 'This is the second dummy project proposed by the staff member with id=3.',
+        :description => 'This is the second dummy project proposed by the staff member with id=3 (Prof. A. N. Academic).',
         :resources => 'none')
       
     Project.create(
-        :createdby => '3',
+        :created_by => 3,
         :title => 'Project 3',
-        :description => 'This is the third dummy project proposed by the staff member with id=3.',
+        :description => 'This is the third dummy project proposed by the staff member with id=3 (Prof. A. N. Academic).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '14',
+        :created_by => 14,
         :title => 'Project 4',
-        :description => 'This is the fourth dummy project proposed by the staff member with id=14.',
+        :description => 'This is the fourth dummy project proposed by the staff member with id=4 (Dr A. Coordinator).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '14',
+        :created_by => 4,
         :title => 'Project 5',
-        :description => 'This is the fifth dummy project proposed by the staff member with id=14.',
+        :description => 'This is the fifth dummy project proposed by the staff member with id=4 (Dr A. Coordinator).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '14',
+        :created_by => 4,
         :title => 'Project 6',
-        :description => 'This is the sixth dummy project proposed by the staff member with id=14.',
+        :description => 'This is the sixth dummy project proposed by the staff member with id=4 (Dr A. Coordinator).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '15',
+        :created_by => 4,
         :title => 'Project 7',
-        :description => 'This is the seventh dummy project proposed by the staff member with id=15.',
+        :description => 'This is the seventh dummy project proposed by the staff member with id=4 (Dr A. Coordinator).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '15',
+        :created_by => 5,
         :title => 'Project 8',
-        :description => 'This is the eighth dummy project proposed by the staff member with id=14.',
+        :description => 'This is the eighth dummy project proposed by the staff member with id=5 (Dr C.P. Jobling).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '15',
+        :created_by => 5,
         :title => 'Project 9',
-        :description => 'This is the fourth dummy project proposed by the staff member with id=15.',
+        :description => 'This is the fourth dummy project proposed by the staff member with id=5 (Dr C.P. Jobling).',
         :resources => 'none')
             
         Project.create(
-        :createdby => '15',
+        :created_by => 5,
         :title => 'Project 10',
-        :description => 'This is the tenth dummy project proposed by the staff member with id=15.',
+        :description => 'This is the tenth dummy project proposed by the staff member with id=5 (Dr C.P. Jobling).',
         :resources => 'none')
       
     
