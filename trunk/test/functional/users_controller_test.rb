@@ -55,9 +55,31 @@ class UsersControllerTest < Test::Unit::TestCase
       assert_response :success
     end
   end
-  
 
+  def test_should_require_first_name_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:first_name => nil)
+      assert assigns(:user).errors.on(:first_name)
+      assert_response :success
+    end
+  end  
+
+  def test_should_require_last_name_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:last_name => nil)
+      assert assigns(:user).errors.on(:last_name)
+      assert_response :success
+    end
+  end  
   
+  def test_should_require_staff_or_student_number_on_signup
+    assert_no_difference 'User.count' do
+      create_user(:staff_or_student_number => nil)
+      assert assigns(:user).errors.on(:staff_or_student_number)
+      assert_response :success
+    end
+  end  
+    
 
   protected
     def create_user(options = {})
