@@ -1,0 +1,12 @@
+<h1>Edit: <%=h @project.title %></h1>
+
+<p> <%= link_to "View all", {:action => 'order_by_creator'} %> | <%= link_to "View by discipline", {:action => 'order_by_disciplines'} %></p>
+  
+<%form_for :project, :url => {:action=>'update', :id => @project.id} do |f|%>
+	
+<%= render :partial => "project", :object => @project, :locals => {:f => f, :disciplines => @disciplines}%>
+
+  <%= f.submit "Update" %> <%= link_to 'Create new project', {:action => 'new'}%>
+<% end %>
+
+<p><%= link_to 'Back', {:action => 'index'} %></p>
