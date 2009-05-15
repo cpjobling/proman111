@@ -1,0 +1,34 @@
+<h1>Project list</h1>
+<% if @projects.blank? %>
+    <p>no projects to display</p>
+<%else%>
+  <p> <%= link_to "View by supervisor", {:action => 'by_supervisor'} %> | <%= link_to "View by discipline", {:action => 'by_discipline'} %> | <%= link_to "View by centre", {:action => 'by_centre'} %></p>
+  
+  <% if flash[:notice] -%>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+  
+  <table border="0">
+  	<thead><td>Number</td><td>Title</td><td>Supervisor</td><td>Email</td></thead>
+  	<tbody>
+    <% @projects.each do |c| %>
+      <% u = User.find(c.created_by) %>
+      <tr>
+      	<td>
+      	  <%= c.id -%>
+      	</td>
+      	<td>
+          <%= link_to c.title, {:action => 'show', :id => c.id} -%>
+        </td>
+        <td><%= u.title -%> 
+               <%= u.first_name -%>
+               <%= u.last_name -%>
+        </td>
+        <td><a href="mailto:<%= u.email -%>">
+               	 <%= u.email -%></a>
+        </td>
+        </tr>
+      <%end%>
+  </tbody>
+  </table>
+<%end%>
