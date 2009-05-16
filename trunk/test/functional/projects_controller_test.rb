@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'project_controller'
+require 'projects_controller'
 
-class ProjectControllerTest < ActionController::TestCase
+class ProjectsControllerTest < ActionController::TestCase
 
   fixtures :projects
 

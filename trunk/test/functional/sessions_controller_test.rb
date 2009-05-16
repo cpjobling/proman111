@@ -5,9 +5,6 @@ require 'sessions_controller'
 class SessionsController; def rescue_action(e) raise e end; end
 
 class SessionsControllerTest < Test::Unit::TestCase
-  # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
-  # Then, you can remove it from this and the units test.
-  include AuthenticatedTestHelper
 
   fixtures :users
 
@@ -21,12 +18,14 @@ class SessionsControllerTest < Test::Unit::TestCase
     post :create, :login => '111111', :password => 'test'
     assert session[:user_id]
     assert_response :redirect
+    assert_redirected_to :controller => "gate", :action => "index"
   end
 
   def test_should_fail_login_and_not_redirect
     post :create, :login => '111111', :password => 'bad password'
     assert_nil session[:user_id]
-    assert_response :success
+    assert_response :redirect
+    assert_redirected_to :action => "new"
   end
 
   def test_should_logout
