@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged in successfully"
       redirect_to :controller => "gate", :action => "index"
     else
+      flash[:notice] = "Invalid login or password"
       render :action => 'new'
     end
   end

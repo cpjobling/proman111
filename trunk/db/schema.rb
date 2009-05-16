@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20) do
+ActiveRecord::Schema.define(:version => 21) do
 
   create_table "disciplines", :force => true do |t|
     t.string "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20) do
 
   add_index "disciplines_projects", ["discipline_id"], :name => "index_disciplines_projects_on_discipline_id"
   add_index "disciplines_projects", ["project_id"], :name => "index_disciplines_projects_on_project_id"
+
+  create_table "news_articles", :force => true do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", :force => true do |t|
     t.integer  "created_by"
