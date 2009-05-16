@@ -3,6 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
 class Test::Unit::TestCase
+  # AuthenticatedTestHelper helps to test authentication
+  include AuthenticatedTestHelper
+   
   # RoleRequirementTestHelper must be included to test RoleRequirement
   include RoleRequirementTestHelper
 
