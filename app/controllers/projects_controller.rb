@@ -2,6 +2,12 @@ class ProjectsController < ApplicationController
   
   # require_role "admin"
 
+ 
+ require_role "admin", :for => "allocate"
+ require_role ["admin", "coordinator", "staff"], 
+    :for => ["new", "create", "edit", "update"]
+ require_role ["staff", "student"], :for => "my_projects"
+     
   # GET /projects
   # GET /projects.xml
   def index
@@ -28,13 +34,20 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.xml
   def new
+    if ! logged_in?
+      flash[:error] = "You must be logged in to add a new project"
+      redirect_to login_path 
+    end
     @project = Project.new
     @disciplines = collect_disciplines
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @projects }
-    end   
+    #if (current_user.roles.blank? || current_user.has_role?(Roles.find_by_name("student"))) 
+      #	 flash[:error] = "You must be a member of staff to add a project"
+      #	 redirect_to(:back)
+  	  #end
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @projects }
+      end  
   end
   
   # GET /projects/1/edit
@@ -177,5 +190,5 @@ class ProjectsController < ApplicationController
     @disciplines = {}
     Discipline.find(:all).collect {|r| @disciplines[r.long_name] = r.id }
   end
-  
+
 end

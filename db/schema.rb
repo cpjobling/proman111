@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 21) do
     t.integer "tour",                                      :default => 1
   end
 
-  add_index "students", ["user_id"], :name => "fk_students_user_id"
   add_index "students", ["project_id"], :name => "fk_students_project_id"
+  add_index "students", ["user_id"], :name => "fk_students_user_id"
 
   create_table "user_roles", :id => false, :force => true do |t|
     t.integer "user_id"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 21) do
     t.integer "tour",       :default => 1
   end
 
-  add_index "wishes", ["student_id"], :name => "fk_wishes_student_id"
   add_index "wishes", ["project_id"], :name => "fk_wishes_project_id"
+  add_index "wishes", ["student_id"], :name => "fk_wishes_student_id"
 
 end
